@@ -31,11 +31,11 @@ app.get("/page/:pageName", (req, res) => {
   let requestedPage = req.params.pageName;
   let responseView, page, resData;
   try {
-    page = fs.readFileSync("./documents/`${}`.md", {
+    page = fs.readFileSync(`./documents/${requestedPage}.md`, {
       encoding: "utf8",
       flag: "r",
     });
-    pageRender = md.render(page);
+    let pageRender = md.render(page);
     res.render("main.ejs", { data: pageRender });
   } catch {
     res.render("error.ejs");
