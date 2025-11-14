@@ -20,23 +20,38 @@ try {
   process.exit();
 }
 
-let homepageRender = md.render(homepage);
+let headings = ["h1", "h2", "h3", "h4", "h5", "h6"]
+
+md.renderer.rules.heading_open = function (tokens, idx, options, env, self) {
+	//console.log(tokens[idx])
+	//console.log(env)
+	let content = tokens[idx+1].content
+	tokens[idx].attrSet('id', content);
+	if (headings.includes(tokens[idx].tag)) {
+	env.urlsArray.push(content)
+	}
+	return self.renderToken(tokens, idx, options);
+}
+
+let homepageUrls = []
+let homepageRender = md.render(homepage, {urlsArray: homepageUrls});
 console.log("homepage.md was successfully loaded.");
 
 app.get("/", (req, res) => {
-  res.render("main.ejs", { data: homepageRender });
+  res.render("main.ejs", {data: homepageRender, title: homepageUrls[0]});
 });
 
 app.get("/page/:pageName", (req, res) => {
   let requestedPage = req.params.pageName;
-  let responseView, page, resData;
+  let page;
+  let pageUrls = []
   try {
     page = fs.readFileSync(`./documents/${requestedPage}.md`, {
       encoding: "utf8",
       flag: "r",
     });
-    let pageRender = md.render(page);
-    res.render("main.ejs", { data: pageRender });
+    let pageRender = md.render(page, {urlsArray: pageUrls});
+    res.render("main.ejs", {data: pageRender, title: pageUrls[0]});
   } catch {
     res.render("error.ejs");
   }
