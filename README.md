@@ -28,7 +28,7 @@ Create a `.env` file containing `PROJECT_NAME` and `PROJECT_PORT` before using. 
 
 ```
 PROJECT_PORT=3000
-PROJECT_NAME="Request Info"
+PROJECT_NAME="Markdown Renderer"
 ```
 
 ### homepage.md
