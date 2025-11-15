@@ -1,0 +1,79 @@
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 3rem 20%;
+}
+
+h1,
+h2,
+h3 {
+  margin: 2rem 0;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+p {
+  margin: 1rem 0;
+  line-height: 1.4;
+  color: #444;
+}
+
+a {
+  display: block;
+  margin: 2px 0;
+}
+
+a::before {
+  content: "🔗️";
+}
+
+ul,
+ol {
+  padding: 0 1rem;
+  color: #444;
+}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.indent-h2 {
+  padding-left: 1rem;
+}
+
+.indent-h3 {
+  padding-left: 2rem;
+}
+
+.error {
+  color: red;
+}
+
+.center {
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  body {
+    padding: 3rem 5%;
+  }
+}

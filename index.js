@@ -9,6 +9,8 @@ const appName = process.env.PROJECT_NAME;
 
 const md = markdownit();
 
+app.use(express.static('public'))
+
 // generate urls from custom renderer rule output
 
 function generateUrls(urls) {
@@ -52,7 +54,7 @@ let homepageRender = md.render(homepage, { urlsArray: homepageUrls });
 console.log("homepage.md was successfully loaded.");
 
 app.get("/", (req, res) => {
-  res.render("main.ejs", {data: homepageRender, title: homepageUrls[0], urls: generateUrls(homepageUrls)});
+  res.render("main.ejs", {data: homepageRender, title: homepageUrls[0].text, urls: generateUrls(homepageUrls)});
 });
 
 // process singular pages
@@ -67,7 +69,7 @@ app.get("/page/:pageName", (req, res) => {
       flag: "r",
     });
     let pageRender = md.render(page, { urlsArray: pageUrls });
-    res.render("main.ejs", {data: pageRender, title: pageUrls[0], urls: generateUrls(pageUrls)});
+    res.render("main.ejs", {data: pageRender, title: pageUrls[0].text, urls: generateUrls(pageUrls)});
   } catch {
     res.render("error.ejs", {data: requestedPage});
   }

@@ -12,6 +12,6 @@ New documents must be created in this folder.
 
 This will become the website's homepage. The program will exit if no `homepage.md` is found.
 
-## Automatically generated table of content
+## Automatically generated table of contents
 
 A table of contents is automatically generated for every page thanks to a custom renderer rule.

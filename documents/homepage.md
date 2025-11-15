@@ -2,6 +2,24 @@
 
 This is the homepage.
 
+Here is some **bold text** and some *italic text*.
+
+Here's an image.
+
+![linux command - manual page](/image.jpg)
+
+Here's some lists:
+
+- 1
+- 2
+- 3
+
+And another list:
+
+1. 1
+2. 3
+3. 3
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin est nulla, in semper elit dictum sodales. Nulla sit amet arcu non eros iaculis mollis eget at dui. Fusce vehicula molestie libero. Donec id nibh non augue pharetra porta in eu magna. Cras aliquam ante ut magna porttitor tempor. Integer non odio quis magna rutrum ullamcorper.
 
 ## Title
