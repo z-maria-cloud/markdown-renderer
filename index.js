@@ -71,7 +71,7 @@ app.get("/page/:pageName", (req, res) => {
     let pageRender = md.render(page, { urlsArray: pageUrls });
     res.render("main.ejs", {data: pageRender, title: pageUrls[0].text, urls: generateUrls(pageUrls)});
   } catch {
-    res.render("error.ejs", {data: requestedPage});
+    res.render("error.ejs");
   }
 });
 
